@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Screenpartners Social Sharing plugin
+Plugin Name: WP Screenpartner Social Sharing plugin
 Plugin URI: http://screenpartner.no/
 Description: Use [screenpartner_social] shortcode to display social sharing links. Use echo do_shortcode('[screenpartner_social]'); for theme display.
-Version: 0.1
+Version: 1.0
 Author: Screenpartner AS
 Author URI: http://screenpartner.no/
 */
@@ -14,10 +14,10 @@ function screenpartners_social_sharing_buttons() {
 
 	// Get current page URL
 	$shortURL = get_permalink();
-	
+
 	// Get current page title
 	$shortTitle = get_the_title();
-	
+
 	// Construct sharing URL without using any script
 	$twitterURL = 'https://twitter.com/intent/tweet?text='.$shortTitle.'&amp;url='.$shortURL.'&amp;via=Crunchify';
 	$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$shortURL;
@@ -30,7 +30,7 @@ function screenpartners_social_sharing_buttons() {
 	$content .= '<li class="share-label">Del:</li>';
 	$content .= '<li><a class="share-link share-twitter" href="'. $twitterURL .'" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a></li>';
 	$content .= '<li><a class="share-link share-facebook" href="'.$facebookURL.'" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a></li>';
-	$content .= '<li><a class="share-link share-facebook" href="mailto:?subject='.$emailURL.'" target="_blank" title="Share with email"><i class="fa fa-envelope"></i></a></li>';
+	$content .= '<li><a class="share-link share-email" href="mailto:?subject='.$emailURL.'" target="_blank" title="Share with email"><i class="fa fa-envelope"></i></a></li>';
 	$content .= '</ul>';
 	$content .= '<div class="clearfix"></div>';
 	return $content;
